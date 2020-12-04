@@ -328,12 +328,12 @@ GameObject:
   - component: {fileID: 413998601}
   - component: {fileID: 413998600}
   m_Layer: 0
-  m_Name: Flock_Blue
+  m_Name: Flock_Predator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &413998600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentPrefab: {fileID: 2972403004324557524, guid: 82bf9598e5be91749aea7f40113bc8b8,
     type: 3}
+  agents: []
   behavior: {fileID: 11400000, guid: d7ffddd805fb5b844a9f4532aa5c7383, type: 2}
   startingCount: 10
   driveFactor: 10
@@ -941,6 +942,81 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!1 &1356013271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356013274}
+  - component: {fileID: 1356013273}
+  - component: {fileID: 1356013272}
+  m_Layer: 0
+  m_Name: Prey State Machine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1356013272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356013271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4e8eb3d052f5e944a144c25d24c3e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  flock: {fileID: 1356013273}
+  changeState: 5
+  preyWanderCompositeBehavior: {fileID: 11400000, guid: a3f00c3cac1432844b62eef91cb634c8,
+    type: 2}
+  preyFleeCompositeBehavior: {fileID: 11400000, guid: e04d3df225f90cf4ba2d5a1fb2d07c38,
+    type: 2}
+  preyHideCompositeBehavior: {fileID: 11400000, guid: 4ea53bc0d3149ab4d85eb6ceb6322b28,
+    type: 2}
+--- !u!114 &1356013273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356013271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3b9caecf3d99b42bc1c516a784eb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentPrefab: {fileID: 2972403004324557524, guid: 82bf9598e5be91749aea7f40113bc8b8,
+    type: 3}
+  agents: []
+  behavior: {fileID: 11400000, guid: 817b9bc832bef464784dfedd99e3e2e9, type: 2}
+  startingCount: 10
+  driveFactor: 10
+  maxSpeed: 7
+  neighborRadius: 1.5
+  avoidanceRadiusMultiplier: 0.5
+  smallRadiusMultiplier: 0.2
+--- !u!4 &1356013274
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356013271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.964513, y: -0.42654365, z: -149.46875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1442769930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1162,81 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.2
+--- !u!1 &1499515868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1499515871}
+  - component: {fileID: 1499515869}
+  - component: {fileID: 1499515870}
+  m_Layer: 0
+  m_Name: Predator State Machine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1499515869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499515868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3b9caecf3d99b42bc1c516a784eb0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentPrefab: {fileID: 2972403004324557524, guid: 7afe371fe1fdd7544b7f8f2587c8b5c0,
+    type: 3}
+  agents: []
+  behavior: {fileID: 11400000, guid: 079fd59af79c2f6478cff62985164e0e, type: 2}
+  startingCount: 5
+  driveFactor: 10
+  maxSpeed: 5
+  neighborRadius: 10
+  avoidanceRadiusMultiplier: 0.5
+  smallRadiusMultiplier: 0.2
+--- !u!114 &1499515870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499515868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490e1f96b867e364aa24fcc2bbcebd9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  flock: {fileID: 1499515869}
+  changeState: 5
+  wanderCompositeBehavior: {fileID: 11400000, guid: 79ade37c78bbfee49b1823b23c1d74f3,
+    type: 2}
+  pursuitCompositeBehavior: {fileID: 11400000, guid: d7ffddd805fb5b844a9f4532aa5c7383,
+    type: 2}
+  attackCompositeBehavior: {fileID: 11400000, guid: a95540a8d6b698444ac336a78255d577,
+    type: 2}
+--- !u!4 &1499515871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499515868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.964513, y: -0.42654365, z: -149.46875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1714979268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,12 +1346,12 @@ GameObject:
   - component: {fileID: 1727801130}
   - component: {fileID: 1727801129}
   m_Layer: 0
-  m_Name: Flock_Red
+  m_Name: Flock_Prey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1727801129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,6 +1366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentPrefab: {fileID: 2972403004324557524, guid: 7afe371fe1fdd7544b7f8f2587c8b5c0,
     type: 3}
+  agents: []
   behavior: {fileID: 11400000, guid: 817b9bc832bef464784dfedd99e3e2e9, type: 2}
   startingCount: 50
   driveFactor: 10

@@ -14,6 +14,9 @@ public class FlockAgent : MonoBehaviour
     public Collider2D AgentCollider { get { return agentCollider; } }
 
 
+
+    public float health = 100;
+
     void Start()
     {
         agentCollider = GetComponent<Collider2D>();
@@ -30,9 +33,5 @@ public class FlockAgent : MonoBehaviour
         transform.position += (Vector3)velocity * Time.deltaTime;
     }
    
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

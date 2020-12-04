@@ -5,8 +5,10 @@ using UnityEngine;
 public class Flock : MonoBehaviour
 {
     public FlockAgent agentPrefab;
-    List<FlockAgent> agents = new List<FlockAgent>();
+    public List<FlockAgent> agents = new List<FlockAgent>();
     public FlockBehavior behavior;
+
+    public static Flock instance;
 
     [Range(1, 500)]
     public int startingCount = 250;
@@ -31,7 +33,15 @@ public class Flock : MonoBehaviour
 
     public float SquareSmallRadius { get { return squareSmallRadius; } }
 
-
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        
+        DontDestroyOnLoad(gameObject);
+    }
 
     private void Start()
     {
